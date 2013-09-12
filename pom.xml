@@ -54,6 +54,14 @@
 					</archive>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>			
 		</plugins>
 	</build>
 	<scm>
@@ -64,11 +72,11 @@
 	<issueManagement>
 		<url>https://github.com/thiagohp/tapestry-wymeditor/issues</url>
 	</issueManagement>
-<!-- 	<repositories> -->
-<!-- 		<repository> -->
-<!-- 			<id>apache-staging</id> -->
-<!-- 			<name>Apache staging</name> -->
-<!-- 			<url>https://repository.apache.org/content/groups/staging</url> -->
-<!-- 		</repository> -->
-<!-- 	</repositories> -->
+	<repositories>
+		<repository>
+			<id>apache-staging</id>
+			<name>Apache staging</name>
+			<url>https://repository.apache.org/content/groups/staging</url>
+		</repository>
+	</repositories>
 </project>
