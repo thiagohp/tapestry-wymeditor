@@ -21,6 +21,7 @@ import org.apache.tapestry5.annotations.InjectContainer;
 import org.apache.tapestry5.annotations.MixinAfter;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.json.JSONArray;
 import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.AssetFactory;
 import org.apache.tapestry5.services.ClasspathProvider;
@@ -37,6 +38,8 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 @Import(library = { 
 		"classpath:/META-INF/assets/wymeditor/jquery-migrate.min.js",
 		"classpath:/META-INF/assets/wymeditor/jquery.wymeditor.min.js",
+		"classpath:/META-INF/assets/wymeditor/plugins/embed/jquery.wymeditor.embed.js",
+		"classpath:/META-INF/assets/wymeditor/jquery.wymeditor.html5.js",
 })
 public class Wymeditor {
 
@@ -67,6 +70,7 @@ public class Wymeditor {
 		
 		final JSONObject jsonObject = new JSONObject("id", clientElement.getClientId());
 		jsonObject.put("options", options);
+//		javaScriptSupport.require("wymeditor/jquery.wymeditor.html5.js");
 		javaScriptSupport.require("wymeditor/wymeditor").with(jsonObject);
 		
 	}
@@ -77,7 +81,7 @@ public class Wymeditor {
 	 * @return a {@link JSONObject} with the <code>lang</code> option set.
 	 */
 	JSONObject defaultOptions() {
-		return new JSONObject("lang", locale.getLanguage());
+		return new JSONObject("lang", locale.getLanguage(), "plugins", new JSONArray("list", "resizable", "rdfa"));
 	}
 
 }
