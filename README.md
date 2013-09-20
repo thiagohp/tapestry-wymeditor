@@ -7,5 +7,5 @@ To use it, just add its dependency to your build tool of choice [1] and add t:mi
 to a TextArea component. In addition, you can use t:options to pass an JSONObject containing options
 for WYMeditor.
 
-[1] For more information, go to http://search.maven.org, search for "tapestry-wymeditor", click in the 0.0.1
-and it'll provide the directions for many build tools.
+[1] For more information, go to http://search.maven.org/#artifactdetails%7Cbr.com.arsmachina%7Ctapestry-wymeditor%7C0.0.1%7Cjar,
+click in the latest version available and it'll provide the directions for many build tools.
