@@ -67,7 +67,7 @@ public class Wymeditor {
 	private Locale locale;
 	
 	@Inject
-	@Path("classpath:/META-INF/assets/wymeditor/iframe/default/")
+	@Path("classpath:/META-INF/assets/wymeditor/iframe/default/wymiframe.html")
 	private Asset iframeBasePath;
 	
 	/**
@@ -76,7 +76,8 @@ public class Wymeditor {
 	void afterRender(MarkupWriter writer) {
 		
 		final JSONObject jsonObject = new JSONObject("id", clientElement.getClientId());
-		options.put("iframeBasePath", iframeBasePath.toClientURL());
+		final String iframeUrl = iframeBasePath.toClientURL();
+        options.put("iframeBasePath", iframeUrl.substring(0, iframeUrl.lastIndexOf("/") + 1));
 		jsonObject.put("options", options);
 		javaScriptSupport.require("wymeditor/wymeditor").with(jsonObject);
 		
