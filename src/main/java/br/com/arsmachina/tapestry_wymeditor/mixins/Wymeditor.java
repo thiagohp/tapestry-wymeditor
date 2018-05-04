@@ -15,11 +15,14 @@ package br.com.arsmachina.tapestry_wymeditor.mixins;
 
 import java.util.Locale;
 
+import org.apache.tapestry5.Asset;
 import org.apache.tapestry5.ClientElement;
+import org.apache.tapestry5.MarkupWriter;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectContainer;
 import org.apache.tapestry5.annotations.MixinAfter;
 import org.apache.tapestry5.annotations.Parameter;
+import org.apache.tapestry5.annotations.Path;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONArray;
 import org.apache.tapestry5.json.JSONObject;
@@ -63,14 +66,18 @@ public class Wymeditor {
 	@Inject
 	private Locale locale;
 	
+	@Inject
+	@Path("classpath:/META-INF/assets/wymeditor/iframe/default/")
+	private Asset iframeBasePath;
+	
 	/**
 	 * Invokes the JavaScript initialization code.
 	 */
-	void afterRender() {
+	void afterRender(MarkupWriter writer) {
 		
 		final JSONObject jsonObject = new JSONObject("id", clientElement.getClientId());
+		options.put("iframeBasePath", iframeBasePath.toClientURL());
 		jsonObject.put("options", options);
-//		javaScriptSupport.require("wymeditor/jquery.wymeditor.html5.js");
 		javaScriptSupport.require("wymeditor/wymeditor").with(jsonObject);
 		
 	}

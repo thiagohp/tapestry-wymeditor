@@ -3,11 +3,11 @@
 	<parent>
 		<groupId>br.com.arsmachina</groupId>
 		<artifactId>parent</artifactId>
-		<version>1.2.10</version>
+		<version>1.2.16-SNAPSHOT</version>
 		<relativePath>../parent</relativePath>
 	</parent>
 	<artifactId>tapestry-wymeditor</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.1.2</version>
 	<name>Tapestry-WYMeditor</name>
 	<description>Package that integrates WYMeditor Apache Tapestry 5 as a mixin</description>
 	<organization>
