@@ -37,12 +37,12 @@ public class WymeditorModule {
 		configuration.add(new LibraryMapping("wymeditor", "br.com.arsmachina.tapestry_wymeditor"));
 	}
 	
-	/**
-	 * Contributes the {@link WymeditorRequestFilter} to Tapestry.
-	 */
-    @Contribute(RequestHandler.class)
-	public static void fixRelativeRequests(OrderedConfiguration<RequestFilter> configuration) {
-		configuration.addInstance("wymeditor", WymeditorRequestFilter.class);
-	}
+//	/**
+//	 * Contributes the {@link WymeditorRequestFilter} to Tapestry.
+//	 */
+//    @Contribute(RequestHandler.class)
+//	public static void fixRelativeRequests(OrderedConfiguration<RequestFilter> configuration) {
+//		configuration.addInstance("wymeditor", WymeditorRequestFilter.class);
+//	}
 	
 }
